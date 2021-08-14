@@ -18,11 +18,11 @@ tableData.forEach((ufodata)=>{
 var button = d3.select("#filter-btn");
 
 // Select the form
-var form = d3.select("#form");
+var list = d3.selectAll("li");
 
 // Create event handlers for clicking the button or pressing the enter key
+list.on("submit",runEnter);
 button.on("click", runEnter);
-form.on("submit",runEnter);
 
 // Create the function to run for both events
 function runEnter() {
@@ -31,8 +31,11 @@ function runEnter() {
   d3.event.preventDefault();
 
   // Select the input element and get the raw HTML node
-  var inputElement = d3.select("#datetime");
- 
+//   var inputElement = d3.select("#datetime");
+  var listItem = d3.select(this);
+  var a=listItem.id.value=="city"
+//   var listItemText=ListItem.text();
+  console.log(a);
   // Get the value property of the input element
   var inputValue = inputElement.property("value");
 
